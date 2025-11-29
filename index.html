@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Analyst Portfolio - Angela Cozby</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel-stylesheet>
+    <style>
+        /* --- Social Media Analyst Design: Bright, Energetic, Coral/Blue --- */
+        :root {
+            --sma-primary: #FF6B6B; /* Coral/Pink */
+            --sma-accent: #1E90FF; /* Dodger Blue */
+            --sma-background: #F8F9FA;
+            --sma-text: #333;
+            --sma-dark: #1F2C3D;
+            --sma-shadow: rgba(88, 139, 139, 0.2);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--sma-text);
+            background: var(--sma-background);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+        a { text-decoration: none; color: var(--sma-accent); transition: color 0.3s; }
+        .section { padding: 80px 0; }
+
+        /* --- Header/Profile Area --- */
+        .sma-header {
+            background: var(--sma-dark);
+            color: white;
+            padding: 40px 0;
+            border-bottom: 5px solid var(--sma-primary);
+        }
+
+        .sma-profile-area {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+        
+        .sma-left-panel {
+            flex-shrink: 0;
+            width: 200px;
+            text-align: center;
+            padding-right: 30px;
+            border-right: 1px dashed rgba(255, 107, 107, 0.5);
+        }
+
+        .sma-profile-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 4px solid var(--sma-primary);
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(255, 107, 107, 0.7);
+            margin-bottom: 15px;
+        }
+
+        .sma-contact-details {
+            font-size: 0.9em;
+            text-align: left;
+            margin-top: 15px;
+            padding-top: 15px;
+        }
+        .sma-contact-details p { margin: 5px 0; color: var(--sma-primary); }
+
+        .sma-main-content { flex-grow: 1; }
+
+        #dynamicGreeting {
+            font-size: 1.3em;
+            color: var(--sma-accent);
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .sma-header h1 {
+            font-size: 3em;
+            margin: 0 0 10px;
+            font-weight: 900;
+        }
+        .sma-header h2 {
+            font-size: 1.4em;
+            color: var(--sma-primary);
+            margin-bottom: 20px;
+        }
+
+        /* --- Project Grid Styles --- */
+        .sma-projects-section {
+             background: white;
+             padding-top: 0;
+             padding-bottom: 60px;
+        }
+        .sma-project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .sma-project-card {
+            background: var(--sma-card-bg);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            text-align: left;
+        }
+        .sma-project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--sma-accent);
+        }
+        .sma-project-content { padding: 20px; }
+        .sma-project-content h4 { color: var(--sma-dark); margin-top: 0; font-size: 1.4em; }
+        .sma-project-content a { font-weight: 700; color: var(--sma-primary); }
+
+
+        /* --- Skills and Competencies --- */
+        .sma-section-title {
+            font-size: 2.5em;
+            color: var(--sma-dark);
+            margin-bottom: 50px;
+        }
+        
+        .sma-skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .sma-skill-card {
+            background: white;
+            padding: 20px;
+            border-bottom: 4px solid var(--sma-accent);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .sma-skill-card h4 { color: var(--sma-dark); margin-top: 0; }
+        .sma-skill-card p { font-size: 0.9em; }
+
+        /* --- Call to Action (CTA) --- */
+        .sma-cta-section {
+            background: var(--sma-primary);
+            padding: 70px 0;
+            text-align: center;
+            color: white;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+        .sma-cta-btn {
+            display: inline-block;
+            background: var(--sma-accent);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 5px;
+            font-weight: 900;
+            font-size: 1.3em;
+            text-transform: uppercase;
+            box-shadow: 0 5px 20px var(--sma-accent);
+            transition: all 0.3s ease;
+        }
+        .sma-cta-btn:hover { background: var(--sma-dark); transform: scale(1.05); }
+
+        @media (max-width: 768px) {
+            .sma-profile-area { flex-direction: column; text-align: center; }
+            .sma-left-panel { width: 100%; padding-right: 0; border-right: none; border-bottom: 1px dashed rgba(255, 107, 107, 0.5); padding-bottom: 20px; }
+            .sma-contact-details { text-align: center; }
+            .sma-main-content { padding-top: 20px; }
+            .sma-header h1 { font-size: 2.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="sma-header">
+        <div class="container">
+            <div class="sma-profile-area">
+                <div class="sma-left-panel">
+                    <img src="https://techorbitjobs.com/wp-content/uploads/2025/10/testimonial-5.webp" alt="Angela Cozby Profile" class="sma-profile-img">
+                    <div class="sma-contact-details">
+                        <p><strong>Location:</strong> Ontario, Canada</p>
+                        <p><strong>Email:</strong> angela.cozby@example.com</p>
+                        <p><strong>LinkedIn:</strong> [Your LinkedIn URL]</p>
+                        <p><strong>Twitter:</strong> [Your Twitter Handle]</p>
+                    </div>
+                </div>
+
+                <div class="sma-main-content">
+                    <div id="dynamicGreeting"></div>
+                    <h1>ANGELA COZBY</h1>
+                    <h2>SOCIAL MEDIA ANALYST | AUDIENCE GROWTH</h2>
+                    <p>
+                        I am a data-driven Social Media Analyst specialized in translating platform metrics (engagement, reach, conversion) into actionable content strategies. My focus is on optimizing campaign performance, identifying audience trends, and proving the tangible ROI of social efforts for brands.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="sma-section-title">TECHNICAL SKILLS & CORE COMPETENCIES</h2>
+            <div class="sma-skills-grid">
+                <div class="sma-skill-card">
+                    <h4>Analytics Platforms</h4>
+                    <p>Google Analytics, Facebook Insights, Twitter Analytics, Sprout Social/Hootsuite.</p>
+                </div>
+                <div class="sma-skill-card">
+                    <h4>Strategy & Reporting</h4>
+                    <p>KPI definition, A/B testing, sentiment analysis, competitive benchmarking, detailed reporting (Looker/Tableau).</p>
+                </div>
+                <div class="sma-skill-card">
+                    <h4>Paid Social</h4>
+                    <p>Facebook Ads Manager, LinkedIn Campaign Manager, budget allocation, audience segmentation.</p>
+                </div>
+                <div class="sma-skill-card">
+                    <h4>Tools & Research</h4>
+                    <p>Social listening tools, Excel (advanced), basic SQL querying for segmentation data.</p>
+                </div>
+            </div>
+
+            <h2 class="sma-section-title">FEATURED ANALYTICS CAMPAIGNS</h2>
+            <div class="sma-project-grid">
+                <div class="sma-project-card">
+                    <img src="project1.png" alt="Social Media Campaign Performance Chart">
+                    <div class="sma-project-content">
+                        <h4>Lead Generation Campaign Optimization</h4>
+                        <p>Analyzed ad performance data to reduce CPL (Cost Per Lead) by 25% for a B2B client over two quarters.</p>
+                        <a href="[Link to Campaign Metrics]">View Metrics</a>
+                    </div>
+                </div>
+                <div class="sma-project-card">
+                    <img src="project2.png" alt="Social Listening Sentiment Analysis Chart">
+                    <div class="sma-project-content">
+                        <h4>Brand Sentiment Analysis Report</h4>
+                        <p>Conducted deep social listening to track brand perception changes during a product launch, providing actionable feedback to the PR team.</p>
+                        <a href="[Link to Report PDF]">View Report</a>
+                    </div>
+                </div>
+                <div class="sma-project-card">
+                    <img src="project3.png" alt="Competitor Social Benchmarking Table">
+                    <div class="sma-project-content">
+                        <h4>Competitor Benchmarking & Strategy</h4>
+                        <p>Developed a comprehensive competitive matrix to identify content gaps and schedule optimizations, boosting organic reach by 18%.</p>
+                        <a href="[Link to Presentation]">View Presentation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="sma-cta-section">
+        <div class="container">
+            <h3>READY TO TURN LIKES INTO LEADS?</h3>
+            <a href="[Link to Contact/Project Inquiry]" class="sma-cta-btn">ANALYZE MY SOCIALS</a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const greetingElement = document.getElementById('dynamicGreeting');
+            const date = new Date();
+            const hour = date.getHours();
+            let greeting;
+            if (hour < 12) { greeting = 'Good morning!'; } 
+            else if (hour < 18) { greeting = 'Good afternoon!'; } 
+            else { greeting = 'Good evening!'; }
+            if (greetingElement) { greetingElement.textContent = greeting + ' Welcome to my portfolio,'; }
+        });
+    </script>
+</body>
+</html>
